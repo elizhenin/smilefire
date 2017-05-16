@@ -20,7 +20,8 @@ class Model_Video extends Model
         $records = DB::select()
             ->from('video')
             ->where('active', '=', '1')
-            ->order_by('id', 'DESC')
+  //          ->order_by('id', 'DESC')
+  ->order_by('created', 'DESC')
             ->execute()
             ->as_array();
 
