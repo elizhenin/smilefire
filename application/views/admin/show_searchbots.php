@@ -1,0 +1,58 @@
+ <table style="width: 100%;">
+     <thead style=" font-style: italic">
+     <tr>
+         <td>
+             Bot
+         </td>
+         <td>
+             Session
+         </td>
+         <td>
+             Created
+         </td>
+         <td>
+             Referrer
+         </td>
+         <td>
+             Page
+         </td>
+         <td>
+             IP
+         </td>
+         <td>
+             Agent
+         </td>
+     </tr>
+     </thead>
+<tbody>
+        <?php
+        foreach($bots as $bot) {
+            ?>
+            <tr style="border: 1px">
+                <td>
+                    <?=$bot['type']?>
+                </td>
+                <td>
+                    <?=$bot['session']?>
+                </td>
+                <td>
+                    <?=$bot['created']?>
+                </td>
+                <td>
+                    <?=$bot['referrer']?>
+                </td>
+                <td>
+                    <?=$bot['page']?>
+                </td>
+                <td>
+                    <?=$bot['ip']?>
+                </td>
+                <td>
+                    <?=$bot['agent']?>
+                </td>
+            </tr>
+            <?php
+        }
+        ?>
+</tbody>
+        </table>
