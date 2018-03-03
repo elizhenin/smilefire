@@ -1,1 +1,0 @@
-# Official site of "SmileFire!", russian fire theatre

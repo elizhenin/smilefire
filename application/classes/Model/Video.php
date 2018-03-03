@@ -26,13 +26,9 @@ class Model_Video extends Model
             ->as_array();
 
 
-        return $records;
+        if($records) return $records;
     }
 
-    /**
-     * Get all articles
-     * @return array
-     */
     public function GetAll()
     {
 

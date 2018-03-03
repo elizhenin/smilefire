@@ -3,14 +3,17 @@
 // -- Environment setup --------------------------------------------------------
 
 // Load the core Kohana class
-require SYSPATH . 'classes/Kohana/Core' . EXT;
+require SYSPATH.'classes/Kohana/Core'.EXT;
 
-if (is_file(APPPATH . 'classes/Kohana' . EXT)) {
-    // Application extends the core
-    require APPPATH . 'classes/Kohana' . EXT;
-} else {
-    // Load empty core extension
-    require SYSPATH . 'classes/Kohana' . EXT;
+if (is_file(APPPATH.'classes/Kohana'.EXT))
+{
+	// Application extends the core
+	require APPPATH.'classes/Kohana'.EXT;
+}
+else
+{
+	// Load empty core extension
+	require SYSPATH.'classes/Kohana'.EXT;
 }
 
 /**
@@ -27,7 +30,7 @@ date_default_timezone_set('Europe/Moscow');
  * @link http://kohanaframework.org/guide/using.configuration
  * @link http://www.php.net/manual/function.setlocale
  */
-setlocale(LC_ALL, 'en_US.utf-8');
+setlocale(LC_ALL, 'ru_RU.utf-8');
 
 /**
  * Enable the Kohana auto-loader.
@@ -65,11 +68,12 @@ mb_substitute_character('none');
 /**
  * Set the default language
  */
-I18n::lang('en-us');
+I18n::lang('ru-ru');
 
-if (isset($_SERVER['SERVER_PROTOCOL'])) {
-    // Replace the default protocol.
-    HTTP::$protocol = $_SERVER['SERVER_PROTOCOL'];
+if (isset($_SERVER['SERVER_PROTOCOL']))
+{
+	// Replace the default protocol.
+	HTTP::$protocol = $_SERVER['SERVER_PROTOCOL'];
 }
 
 /**
@@ -78,8 +82,9 @@ if (isset($_SERVER['SERVER_PROTOCOL'])) {
  * Note: If you supply an invalid environment name, a PHP warning will be thrown
  * saying "Couldn't find constant Kohana::<INVALID_ENV_NAME>"
  */
-if (isset($_SERVER['KOHANA_ENV'])) {
-    Kohana::$environment = constant('Kohana::' . strtoupper($_SERVER['KOHANA_ENV']));
+if (isset($_SERVER['KOHANA_ENV']))
+{
+	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
 }
 
 /**
@@ -98,14 +103,14 @@ if (isset($_SERVER['KOHANA_ENV'])) {
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
 Kohana::init(array(
-    'base_url' => '/',
+	'base_url'   => '/',
     'index_file' => ''
 ));
 
 /**
  * Attach the file write to logging. Multiple writers are supported.
  */
-Kohana::$log->attach(new Log_File(APPPATH . 'logs'));
+Kohana::$log->attach(new Log_File(APPPATH.'logs'));
 
 /**
  * Attach a file reader to config. Multiple readers are supported.
@@ -117,27 +122,32 @@ Kohana::$config->attach(new Config_File);
  */
 
 Cookie::$salt = '6543';
-
 Kohana::modules(array(
-// 'auth'       => MODPATH.'auth',       // Basic authentication
-    // 'cache'      => MODPATH.'cache',      // Caching with multiple backends
-    // 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
- 'database'   => MODPATH.'database',   // Database access
-  'image'      => MODPATH.'image',      // Image manipulation
-    // 'minion'     => MODPATH.'minion',     // CLI Tasks
-// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-    // 'unittest'   => MODPATH.'unittest',   // Unit testing
-    // 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-    //'auth_google' => MODPATH.'auth_google',
-    //'searchbot' => MODPATH.'searchbot',
+	// 'auth'       => MODPATH.'auth',       // Basic authentication
+	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
+	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
+	 'database'   => MODPATH.'database',   // Database access
+	 'image'      => MODPATH.'image',      // Image manipulation
+	// 'minion'     => MODPATH.'minion',     // CLI Tasks
+	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	// 'unittest'   => MODPATH.'unittest',   // Unit testing
+	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
     'robots' => MODPATH.'robots',
-));
+	));
+
+/**
+ * Cookie Salt
+ * @see  http://kohanaframework.org/3.3/guide/kohana/cookies
+ * 
+ * If you have not defined a cookie salt in your Cookie class then
+ * uncomment the line below and define a preferrably long salt.
+ */
+// Cookie::$salt = NULL;
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-
 Route::set('administrator_gallery', 'administrator/gallery(/<alias>)',array('alias'=>'[\w-/.]+'))
     ->defaults(array(
         'controller' => 'Admin',
@@ -146,10 +156,10 @@ Route::set('administrator_gallery', 'administrator/gallery(/<alias>)',array('ali
 
 Route::set('administrator', 'administrator(/<action>)')
     ->defaults(array(
-            'controller' => 'Admin',
+        'controller' => 'Admin',
         'action' => 'index',
     ));
-    Route::set('ajax', 'ajax/<action>')
+Route::set('ajax', 'ajax/<action>')
     ->defaults(array(
         'controller' => 'ajax'
     ));

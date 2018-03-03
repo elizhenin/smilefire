@@ -4,7 +4,7 @@
     <table style="width:100%;padding:1px;border:0px;text-align:center; ">
         <tbody>
         <tr>
-            <?
+            <?php
             if (!empty($videos)) {
                 $videos_count = 1;
                 foreach ($videos as $video) {
