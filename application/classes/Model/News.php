@@ -98,7 +98,14 @@ if(empty($article['start'])){$article['start']=time();}
         $session = Session::instance();
         $user_id = Model_Users::UserId($session->get('user', false));
         DB::insert('news', array('title', 'text', 'start','stop','user_id','alias'))
-            ->values(array(trim(htmlspecialchars($article['title'])), $article['text'], $article['start'], $article['stop'],$user_id,Goodies::textToAlias(trim(htmlspecialchars($article['title'])))))
+            ->values(array(
+                trim(htmlspecialchars($article['title'])),
+                $article['text'],
+                (int)$article['start'],
+                (int)$article['stop'],
+                $user_id,
+                Goodies::textToAlias(trim(htmlspecialchars($article['title'])))
+            ))
             ->execute();
     }
 
@@ -117,8 +124,8 @@ if(empty($article['start'])){$article['start']=time();}
             ->set(array(
                     'title' => trim(htmlspecialchars($article['title'])),
                     'text' => $article['text'],
-                    'start' => $article['start'],
-                    'stop' => $article['stop'],
+                    'start' => (int)$article['start'],
+                    'stop' => (int)$article['stop'],
                 'user_id' => $user_id
             ))
             ->where('id', '=', $article['id'])
