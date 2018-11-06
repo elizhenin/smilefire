@@ -10,7 +10,7 @@ $alias = $this->request->param('alias');
         if($alias){
             $item = $modelNews->GetByAlias($alias);
           $oneNew = View::factory('news/one');
-          $oneNew->text = $item['text'];
+          $oneNew->text = htmlspecialchars_decode($item['text']);
           $oneNew->time = $item['start'];
             $this->content =$oneNew;
             $this->description = $item['title'];

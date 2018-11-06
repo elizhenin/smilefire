@@ -8,7 +8,7 @@
         </h2>
     </div>
     <div id="content_'<?php echo $one['start'] ?>" style="text-align:left;font-size:12pt">
-        <?php echo $one['text'] ?>
+        <?php echo htmlspecialchars_decode($one['text']) ?>
     </div>
     <div style="text-align:right;font-size:10pt;">Опубликовано&nbsp;в&nbsp;<?php echo date('H:i  d.m.Y', $one['start']); ?>
     </div>
