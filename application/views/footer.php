@@ -8,7 +8,7 @@
     ?>
     <br />
     <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-    <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="yaru,vkontakteodnoklassniki,moimir" data-yashareTheme="counter"></div>
+    <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="yaru,vkontakte,odnoklassniki,moimir" data-yashareTheme="counter"></div>
     <br />
     <!-- Yandex.Metrika informer -->
     <a href="/away.php?url=http://metrika.yandex.ru/stat/?id=23719822&amp;from=informer" target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/23719822/3_0_202020FF_000000FF_1_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:23719822,lang:'ru'});return false}catch(e){}" /></a>
