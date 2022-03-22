@@ -6,7 +6,7 @@
     </div>
     <div style="text-align:left;font-size:10pt">
         <?php
-        $one['text'] = preg_replace("/<.*?>/", " ", $one['text']); // вырезаем теги
+        $one['text'] = preg_replace("/<.*?>/", " ", htmlspecialchars_decode($one['text'])); // вырезаем теги
         echo $one['text'];
         ?>
     </div>

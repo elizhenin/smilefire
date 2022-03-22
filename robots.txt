@@ -1,0 +1,6 @@
+User-agent: * 
+Disallow: /away.php
+Disallow: /rgb
+Disallow: /administrator
+Host: smilefire.ru
+

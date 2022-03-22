@@ -2,6 +2,7 @@
 <html lang="ru-RU">
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="apple-touch-startup-image" href="/css/images/favicon.png"/>
     <link rel="apple-touch-icon" href="/css/images/favicon.png"/>
     <link rel="apple-touch-icon" sizes="72x72" href="/css/images/favicon.png"/>
