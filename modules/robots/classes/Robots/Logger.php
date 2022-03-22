@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct access allowed.');
+<?php defined('SYSPATH') or die('No direct access allowed.');
 
 class Robots_Logger
 {
@@ -14,7 +14,6 @@ class Robots_Logger
         if ($return) {
             return $return;
         } else return 'debug';
-
     }
 
     private static function IsGoogleBot($return = false)
@@ -24,59 +23,59 @@ class Robots_Logger
         } else {
             $return = false;
             $ip = Request::$client_ip;
-            if (substr_count(Request::$user_agent, 'Googlebot') > 0 ) {
+            if (substr_count(Request::$user_agent, 'Googlebot') > 0) {
                 $return = 'google';
             }
 
-            for($i=160;$i<=191;$i++){
-                for($k=0;$k<=255;$k++){
-                    if('64.233.'.$i.'.'.$k == $ip){
+            for ($i = 160; $i <= 191; $i++) {
+                for ($k = 0; $k <= 255; $k++) {
+                    if ('64.233.' . $i . '.' . $k == $ip) {
                         $return = 'google';
                     }
                 }
             }
 
-            for($i=0;$i<=15;$i++){
-                for($k=0;$k<=255;$k++){
-                    if('66.102.'.$i.'.'.$k == $ip){
+            for ($i = 0; $i <= 15; $i++) {
+                for ($k = 0; $k <= 255; $k++) {
+                    if ('66.102.' . $i . '.' . $k == $ip) {
                         $return = 'google';
                     }
                 }
             }
 
-            for($i=64;$i<=95;$i++){
-                for($k=0;$k<=255;$k++){
-                    if('66.249.'.$i.'.'.$k == $ip){
+            for ($i = 64; $i <= 95; $i++) {
+                for ($k = 0; $k <= 255; $k++) {
+                    if ('66.249.' . $i . '.' . $k == $ip) {
                         $return = 'google';
                     }
                 }
             }
 
-            for($i=192;$i<=255;$i++){
-                for($k=0;$k<=255;$k++){
-                    if('72.14.'.$i.'.'.$k == $ip){
+            for ($i = 192; $i <= 255; $i++) {
+                for ($k = 0; $k <= 255; $k++) {
+                    if ('72.14.' . $i . '.' . $k == $ip) {
                         $return = 'google';
                     }
                 }
             }
-            for($i=128;$i<=255;$i++){
-                for($k=0;$k<=255;$k++){
-                    if('74.125.'.$i.'.'.$k == $ip){
+            for ($i = 128; $i <= 255; $i++) {
+                for ($k = 0; $k <= 255; $k++) {
+                    if ('74.125.' . $i . '.' . $k == $ip) {
                         $return = 'google';
                     }
                 }
             }
 
-            for($i=192;$i<=255;$i++){
-                for($k=0;$k<=255;$k++){
-                    if('209.85.'.$i.'.'.$k == $ip){
+            for ($i = 192; $i <= 255; $i++) {
+                for ($k = 0; $k <= 255; $k++) {
+                    if ('209.85.' . $i . '.' . $k == $ip) {
                         $return = 'google';
                     }
                 }
             }
-            for($i=32;$i<=63;$i++){
-                for($k=0;$k<=255;$k++){
-                    if('216.239.'.$i.'.'.$k == $ip){
+            for ($i = 32; $i <= 63; $i++) {
+                for ($k = 0; $k <= 255; $k++) {
+                    if ('216.239.' . $i . '.' . $k == $ip) {
                         $return = 'google';
                     }
                 }
@@ -84,7 +83,6 @@ class Robots_Logger
 
             return $return;
         }
-
     }
 
     private static function IsYandexBot($return = false)
@@ -149,7 +147,7 @@ class Robots_Logger
 
     public function IsSearchBot($referrer)
     {
-        if(empty($referrer)) $referrer = '';
+        if (empty($referrer)) $referrer = '';
         $return =
             self::IsDebugEnabled(
                 self::IsGoogleBot(
@@ -171,12 +169,11 @@ class Robots_Logger
                 $time_ses = time();
                 $session->set('visitor_check', $time_ses);
             }
-            DB::insert('searchbots', array('type', 'page', 'created', 'session', 'referrer', 'agent','ip'))
-                ->values(array($return, URL::site(Request::detect_uri(), TRUE) . URL::query(), DB::expr('NOW()'), $time_ses, $referrer, Request::$user_agent,Request::$client_ip))
-                ->execute();
+            // DB::insert('searchbots', array('type', 'page', 'created', 'session', 'referrer', 'agent','ip'))
+            //     ->values(array($return, URL::site(Request::detect_uri(), TRUE) . URL::query(), DB::expr('NOW()'), $time_ses, $referrer, Request::$user_agent,Request::$client_ip))
+            //     ->execute();
         } else {
             return false;
         }
-
     }
 }
